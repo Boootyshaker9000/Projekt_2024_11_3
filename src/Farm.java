@@ -1,22 +1,23 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Farm {
 
-    private ArrayList<Plant> plants;
-    private ArrayList<Animal> animals;
+    private HashSet<Plant> plants;
+    private HashSet<Animal> animals;
     private double farm_area;
 
     public Farm(){
         farm_area = 100;
-        plants = new ArrayList<>();
-        animals = new ArrayList<>();
+        plants = new HashSet<>();
+        animals = new HashSet<>();
     }
 
-    public ArrayList<Plant> getFlowers() {
+    public HashSet<Plant> getFlowers() {
         return plants;
     }
 
-    public void setFlowers(ArrayList<Plant> plants) {
+    public void setFlowers(HashSet<Plant> plants) {
         this.plants = plants;
     }
 
@@ -28,19 +29,30 @@ public class Farm {
         this.farm_area = farm_area;
     }
 
-    public ArrayList<Animal> getAnimals() {
+    public HashSet<Animal> getAnimals() {
         return animals;
     }
 
-    public void setAnimals(ArrayList<Animal> animals) {
+    public void setAnimals(HashSet<Animal> animals) {
         this.animals = animals;
     }
 
     public void plant(Plant plant){
-        plants.add(plant);
+        if (!(plants.size() > 5)){
+            plants.add(plant);
+        }
     }
 
     public void water(Plant plant){
         plant.chanceOfGrowth++;
+    }
+
+    public void harvest(Plant plant){
+        plants.remove(plant);
+    }
+
+    public Plant get_flower(int index){
+        Plant[] temp = plants.toArray(Plant[]::new);
+        return temp[index];
     }
 }
