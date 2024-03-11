@@ -1,4 +1,4 @@
-public abstract class Flower {
+public abstract class Plant {
 
     protected String name;
     protected double price;
@@ -7,7 +7,7 @@ public abstract class Flower {
 
     @Override
     public String toString() {
-        return "Flower{" +
+        return "Plant{" +
                 "name='" + name + '\'' +
                 ", price=" + price +
                 ", neededArea=" + neededArea +
